@@ -16,4 +16,5 @@ It will generate an ISO img build/iso/custom.iso, which include
 
 # How to work
 For the commented code, please refer to
+[http://tdsparrow.github.io/OS_In_One/build.html](http://tdsparrow.github.io/OS_In_One/build.html)
 
