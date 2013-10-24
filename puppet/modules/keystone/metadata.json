@@ -1,0 +1,303 @@
+{
+  "version": "1.2.0",
+  "dependencies": [
+    {
+      "name": "cprice404/inifile",
+      "version_requirement": ">= 0.10.0"
+    },
+    {
+      "name": "puppetlabs/mysql",
+      "version_requirement": ">= 0.5.0"
+    }
+  ],
+  "description": "Openstack Keystone module. This version should work for folsom and grizzly. Tested on Ubuntu and RHEL 6",
+  "project_page": "http://github.com/puppetlabs/puppetlabs-keystone",
+  "summary": "Keystone Puppet Module",
+  "source": "git://github.com/puppetlabs/puppetlabs-keystone",
+  "author": "Puppet Labs",
+  "types": [
+    {
+      "parameters": [
+        {
+          "name": "name",
+          "doc": "Section/setting name to manage from keystone.conf  Values can match `/\\S+\\/\\S+/`."
+        }
+      ],
+      "providers": [
+        {
+          "name": "ini_setting",
+          "doc": "    "
+        }
+      ],
+      "properties": [
+        {
+          "name": "ensure",
+          "doc": "The basic property that the resource should be in.  Valid values are `present`, `absent`."
+        },
+        {
+          "name": "value",
+          "doc": "The value of the setting to be defined."
+        }
+      ],
+      "name": "keystone_config",
+      "doc": ""
+    },
+    {
+      "parameters": [
+        {
+          "name": "name",
+          "doc": "  Values can match `/\\S+\\/\\S+/`."
+        }
+      ],
+      "providers": [
+        {
+          "name": "keystone",
+          "doc": "    Provider that uses the keystone client tool to\n    manage keystone endpoints\n\n    This provider makes a few assumptions/\n      1. assumes that the admin endpoint can be accessed via localhost.\n      2. Assumes that the admin token and port can be accessed from\n         /etc/keystone/keystone.conf\n  Required binaries: `keystone`.    "
+        }
+      ],
+      "properties": [
+        {
+          "name": "ensure",
+          "doc": "The basic property that the resource should be in.  Valid values are `present`, `absent`."
+        },
+        {
+          "name": "id",
+          "doc": ""
+        },
+        {
+          "name": "region",
+          "doc": ""
+        },
+        {
+          "name": "public_url",
+          "doc": ""
+        },
+        {
+          "name": "internal_url",
+          "doc": ""
+        },
+        {
+          "name": "admin_url",
+          "doc": ""
+        }
+      ],
+      "name": "keystone_endpoint",
+      "doc": "    This is currently used to model the management of\n    keystone endpoint.\n"
+    },
+    {
+      "parameters": [
+        {
+          "name": "name",
+          "doc": "  Values can match `/\\S+/`."
+        }
+      ],
+      "providers": [
+        {
+          "name": "keystone",
+          "doc": "    Provider that uses the keystone client tool to\n    manage keystone roles\n  Required binaries: `keystone`.    "
+        }
+      ],
+      "properties": [
+        {
+          "name": "ensure",
+          "doc": "The basic property that the resource should be in.  Valid values are `present`, `absent`."
+        },
+        {
+          "name": "id",
+          "doc": ""
+        }
+      ],
+      "name": "keystone_role",
+      "doc": "    This is currently used to model the creation of\n    keystone roles.\n"
+    },
+    {
+      "parameters": [
+        {
+          "name": "name",
+          "doc": "  Values can match `/\\S+/`."
+        }
+      ],
+      "providers": [
+        {
+          "name": "keystone",
+          "doc": "    Provider that uses the keystone client tool to\n    manage keystone services\n\n    This provider makes a few assumptions/\n      1. assumes that the admin endpoint can be accessed via localhost.\n      2. Assumes that the admin token and port can be accessed from\n         /etc/keystone/keystone.conf\n\n    Does not support the ability to list all\n  Required binaries: `keystone`.    "
+        }
+      ],
+      "properties": [
+        {
+          "name": "ensure",
+          "doc": "The basic property that the resource should be in.  Valid values are `present`, `absent`."
+        },
+        {
+          "name": "id",
+          "doc": ""
+        },
+        {
+          "name": "type",
+          "doc": ""
+        },
+        {
+          "name": "description",
+          "doc": ""
+        }
+      ],
+      "name": "keystone_service",
+      "doc": "    This is currently used to model the management of\n    keystone services.\n"
+    },
+    {
+      "parameters": [
+        {
+          "name": "name",
+          "doc": "  Values can match `/\\w+/`."
+        }
+      ],
+      "providers": [
+        {
+          "name": "keystone",
+          "doc": "    Provider that uses the keystone client tool to\n    manage keystone tenants\n\n    This provider makes a few assumptions/\n      1. assumes that the admin endpoint can be accessed via localhost.\n      2. Assumes that the admin token and port can be accessed from\n         /etc/keystone/keystone.conf\n\n    One string difference, is that it does not know how to change the\n    name of a tenant\n  Required binaries: `keystone`.    "
+        }
+      ],
+      "properties": [
+        {
+          "name": "ensure",
+          "doc": "The basic property that the resource should be in.  Valid values are `present`, `absent`."
+        },
+        {
+          "name": "enabled",
+          "doc": "  Values can match `/(t|T)rue/`, `/(f|F)alse/`."
+        },
+        {
+          "name": "description",
+          "doc": ""
+        },
+        {
+          "name": "id",
+          "doc": ""
+        }
+      ],
+      "name": "keystone_tenant",
+      "doc": "    This type can be used to manage\n    keystone tenants.\n\n    This is assumed to be running on the same node\n    as your keystone API server.\n"
+    },
+    {
+      "parameters": [
+        {
+          "name": "name",
+          "doc": "  Values can match `/\\S+/`."
+        },
+        {
+          "name": "password",
+          "doc": "  Values can match `/\\S+/`."
+        }
+      ],
+      "providers": [
+        {
+          "name": "keystone",
+          "doc": "    Provider that uses the keystone client tool to\n    manage keystone users\n\n    This provider makes a few assumptions/\n      1. assumes that the admin endpoint can be accessed via localhost.\n      2. Assumes that the admin token and port can be accessed from\n         /etc/keystone/keystone.conf\n\n    Does not support the ability to update the user's name\n  Required binaries: `keystone`.    "
+        }
+      ],
+      "properties": [
+        {
+          "name": "ensure",
+          "doc": "The basic property that the resource should be in.  Valid values are `present`, `absent`."
+        },
+        {
+          "name": "enabled",
+          "doc": "  Values can match `/(t|T)rue/`, `/(f|F)alse/`."
+        },
+        {
+          "name": "tenant",
+          "doc": "  Values can match `/\\S+/`."
+        },
+        {
+          "name": "email",
+          "doc": "  Values can match `/\\S+@\\S+/`."
+        },
+        {
+          "name": "id",
+          "doc": ""
+        }
+      ],
+      "name": "keystone_user",
+      "doc": "    This is currently used to model the creation of\n    keystone users.\n\n    It currently requires that both the password\n    as well as the tenant are specified.\n"
+    },
+    {
+      "parameters": [
+        {
+          "name": "name",
+          "doc": "  Values can match `/^\\S+@\\S+$/`."
+        }
+      ],
+      "providers": [
+        {
+          "name": "keystone",
+          "doc": "    Provider that uses the keystone client tool to\n    manage keystone role assignments to users\n  Required binaries: `keystone`.    "
+        }
+      ],
+      "properties": [
+        {
+          "name": "ensure",
+          "doc": "The basic property that the resource should be in.  Valid values are `present`, `absent`."
+        },
+        {
+          "name": "roles",
+          "doc": ""
+        },
+        {
+          "name": "id",
+          "doc": ""
+        }
+      ],
+      "name": "keystone_user_role",
+      "doc": "    This is currently used to model the creation of\n    keystone users roles.\n\n    User roles are an assigment of a role to a user on\n    a certain tenant. The combintation of all of these\n    attributes is unique.\n"
+    }
+  ],
+  "checksums": {
+    "spec/unit/type/keystone_endpoint_spec.rb": "5dbd0b540a452bae36218b2a8794a41e",
+    "spec/spec_helper.rb": "0db89c9a486df193c0e40095422e19dc",
+    "spec/classes/keystone_spec.rb": "c0d9fc2adf7333b00c1d132050f08f93",
+    "spec/classes/keystone_ldap_spec.rb": "787f2fa6cb37e9bfa185b3270d6839d8",
+    "manifests/python.pp": "2c18b0ac51faf8303e3b51f116bf75f4",
+    "manifests/params.pp": "363217b035f69c487a674fc7321fbb84",
+    "lib/puppet/type/keystone_tenant.rb": "99c95471c3c3b25d20d1a3e5d041a035",
+    "spec/unit/provider/keystone_spec.rb": "0f8df7dfb064096b42d4a66b0d5440ef",
+    "spec/classes/keystone_roles_admin_spec.rb": "2ea836a2c2a4ba1f0827d6d5f9886de2",
+    "spec/classes/keystone_db_mysql_spec.rb": "ae641b0702138e3c9630e2a84249e8df",
+    "manifests/db/postgresql.pp": "7400f5708490aa7ce8205671cc5747cc",
+    "lib/puppet/type/keystone_user_role.rb": "18124cd9f56acfe1ac3ef08fb0b9174d",
+    "lib/puppet/provider/keystone_user/keystone.rb": "2a8c43e9a69ad29abcc7a211692a44a7",
+    "lib/puppet/provider/keystone_role/keystone.rb": "0ebb4da43c4ad54fa9a6f4787ff318f3",
+    "lib/puppet/provider/keystone.rb": "6fc4cef43716e4c83411cbd55ab57b21",
+    "CHANGELOG": "56cd981ca6cc3a4ba0756e6e70411df9",
+    "manifests/endpoint.pp": "3a5c770ad75afedb84d51e69243d199f",
+    "LICENSE": "71032619ad456285e57bef465a6c5a26",
+    "lib/puppet/provider/keystone_endpoint/keystone.rb": "95ecf86e387ab56b844d4494c507c545",
+    "templates/client/authtoken.conf.erb": "34d8a3adf4ee3eb25bf535e78d6b314b",
+    "manifests/dev/install.pp": "49ce7909a859d2424cf1fbe5404eab0c",
+    "Gemfile": "e87c237ce1d9c2a91e439b8b6d5535a9",
+    "README.md": "d50a121f9cce6dad5044e690b4504d2a",
+    "Rakefile": "0254db5d3fc38c67a2c160d7296a24f8",
+    "ext/keystone_test.rb": "d403c8c80616f94d0cac9ff12c327b9a",
+    "spec/classes/keystone_python_spec.rb": "30e679d3219eb008a5a2c939759e1ad0",
+    "manifests/ldap.pp": "b40416a6042eeaffcf489feb9696f833",
+    "manifests/db/mysql/host_access.pp": "5f91cf17d8f27ec304c19bf20a63f901",
+    "lib/puppet/type/keystone_service.rb": "b5232cb2b7d1ffb2d3d2b489c10a399c",
+    "lib/puppet/type/keystone_role.rb": "7c70bbe58a96e0e3b531d46fa7b0f8a9",
+    "spec/unit/provider/keystone_endpoint/keystone_spec.rb": "4a205b51607dd39d227a3669d1fafde7",
+    "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
+    "manifests/db/mysql.pp": "4370cd68d92229011830cd926f6b687d",
+    "lib/puppet/type/keystone_endpoint.rb": "7c9580a564eb364e3d1d69064419c992",
+    "lib/puppet/type/keystone_config.rb": "4beff15665f6a4f949bf80106f1ebb6d",
+    "lib/puppet/provider/keystone_user_role/keystone.rb": "be17a18f10025d718102260684432da7",
+    "lib/puppet/provider/keystone_tenant/keystone.rb": "2ed000fb7b225120e67809c5c5896533",
+    "lib/puppet/provider/keystone_service/keystone.rb": "b330b6566bed5b0c3959a0e21a29c1e6",
+    "spec/classes/keystone_endpoint_spec.rb": "505b208f45cb6dad27665222f428b729",
+    "Modulefile": "ceea6910a4cce247715cc0d8cb19a7c1",
+    "manifests/roles/admin.pp": "b35363c5ed7cebba85ed01fdff2c871e",
+    "manifests/init.pp": "4bf11505149274666fba0c1a7c0ac964",
+    "lib/puppet/type/keystone_user.rb": "f0b8f4fcb3c81f052afbfe96a8f496d0",
+    "lib/puppet/provider/keystone_config/ini_setting.rb": "b3c3813be1c155f49fedf0a1178fe905",
+    "examples/site.pp": "1a1365453361ff94cb9bdc809908a23b"
+  },
+  "name": "puppetlabs-keystone",
+  "license": "Apache"
+}

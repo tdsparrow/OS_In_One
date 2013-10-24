@@ -1,0 +1,18 @@
+PKG_LIST="python-webob python-greenlet python-eventlet dnsmasq-utils
+python-pastedeploy python-routes python-migrate python-repoze.lru
+python-sqlalchemy python-passlib python-prettytable python-novnc
+python-keystone python-keystoneclient python-numpy websockify liblapack3gf liblapack3
+libaugeas-ruby1.8 ruby1.8 ruby-shadow libruby1.8 facter debconf-utils puppet-common puppet
+mysql-server 
+python-mysqldb python-nose patch rabbitmq-server ntp vlan bridge-utils keystone glance python-boto
+python-carrot python-cheetah python-cinderclient python-daemon nova-compute python-nova
+python-glance python-gflags python-glanceclient python-libxml2 nova-common
+python-m2crypto python-novaclient python-sqlalchemy-ext python-suds
+python-xattr python-quantumclient python-feedparser python-django-horizon
+openstack-dashboard-ubuntu-theme glance-api glance-registry python-ldap
+libgfortran3 python-cloudfiles python-compressor python-openstack-auth euca2ools
+python-django libatlas3gf-base glance-common python-requests python-swiftclient
+python-urllib3 python-jsonschema python-warlock python-appconf python-cliff curl 
+python-cmd2 libvirt0 nova-compute-kvm libc-ares2 libev4 libv8-3.8.9.20 nodejs node-less unzip fabric expect tcl8.5
+nova-api nova-cert novnc nova-consoleauth nova-scheduler nova-novncproxy screen parted 
+nova-network nova-volume openstack-dashboard memcached cpu-checker kvm libvirt-bin pm-utils"
